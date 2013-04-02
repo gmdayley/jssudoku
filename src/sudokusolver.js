@@ -1,3 +1,9 @@
+/**
+ * This is an implementation of a backtracking algorithm to solve a 9x9 soduku puzzle
+ * 
+ * @type {SudokuSolver}
+ */
+
 var SudokuSolver = function (){
     var UNASSIGNED = 0;
 
@@ -13,12 +19,12 @@ var SudokuSolver = function (){
             return true; // No more unassigned locations, must be solved
         }
 
-        console.log("location", location);
-
+        // Iterate through possible choices
         for(var num = 1; num <= 9; num++) {
             if(noConflicts(puzzle, location, num)) {  // Check for conflicts
                 puzzle[location.row][location.col] = num;  // No conflicts, assign num and try to solve the rest of the puzzle
 
+                // Try to solve the rest of the puzzle with this solution
                 if(solve(puzzle)) {
                     // Solved!
                     return true;
@@ -37,7 +43,7 @@ var SudokuSolver = function (){
             var row = puzzle[i];
 
             for(var j = 0; j < row.length; j++) {
-                if(row[j] === 0) {
+                if(row[j] === UNASSIGNED) {
                     location.row = i;
                     location.col = j;
                     return true;

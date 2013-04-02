@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Sudoku</title>
 </head>
 <body>
 
-<script src="sudokusolver.js"></script>
+<script src="src/sudokusolver.js"></script>
 
 <script>
-
+    // Represents a 9x9 sudoku puzzle
     var puzzle =
             [
                 [0,0,4,0,1,0,9,7,0],
@@ -23,6 +23,14 @@
             ];
 
     SudokuSolver.solve(puzzle);
+
+    for (var i=0, l=puzzle.length; i<l; i++){
+        if (puzzle[i] instanceof Array){
+            puzzle[i] = puzzle[i].join(",");
+        }
+    }
+
+    console.log(puzzle);
 </script>
 </body>
 </html>
