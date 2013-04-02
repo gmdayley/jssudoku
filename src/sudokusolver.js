@@ -1,6 +1,6 @@
 /**
  * This is an implementation of a backtracking algorithm to solve a 9x9 soduku puzzle
- * 
+ *
  * @type {SudokuSolver}
  */
 
